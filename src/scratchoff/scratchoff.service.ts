@@ -35,11 +35,11 @@ export class ScratchoffService {
             scratchoff.chancestowin = +$('.chancestowin', ticket).text();
             scratchoff.launchdate = new Date($('.launchdate', ticket).text());
             scratchoff.probability = +$('.probability', ticket).text();
-            scratchoff.prizes = prizes;
+            // scratchoff.prizes = prizes;
             return scratchoff;
         }).get().sort((a, b) => a.id - b.id);
 
 
-        return { scratchoffs };
+        return scratchoffs;
     }
 }
