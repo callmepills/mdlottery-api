@@ -1,6 +1,8 @@
 import { HttpService, Injectable } from '@nestjs/common';
-import { Scratchoff } from './scratchoff';
 import * as cheerio from 'cheerio';
+import * as Papa from 'papaparse';
+
+import { Scratchoff } from './scratchoff';
 import { Prize } from './prize';
 
 @Injectable()
@@ -39,7 +41,6 @@ export class ScratchoffService {
             return scratchoff;
         }).get().sort((a, b) => a.id - b.id);
 
-
-        return scratchoffs;
+        return Papa.unparse(scratchoffs);
     }
 }
